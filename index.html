@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!-- Made By TASOSTHDS -->
+<html lang="en" dir="ltr">
+  <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <!-- CSS -->
+
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="styles2.css">
+
+        <!-- Boxicons CSS-->
+
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="icon" href="vulsefylogo3.ico" type="image/x-icon" />
+
+        <title>VULSEFY | Dashboard</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="content">
+        <nav class="sidebar close">
+            <header>
+                <div class="image-text">
+                    <span class="image">
+                        <img src="vulsefylogo3.png" alt="logo">
+                    </span>
+
+                    <div class="text header-text">
+                        <span class="name">Vulsefy</span>
+                        <span class="profession">Web Developer</span>
+                    </div>
+                </div>
+
+                <i class="bx bx-chevron-right toggle"></i>
+
+            </header>
+            <div class="menu-bar">
+                <div class="menu">
+                    <li class="search-box">
+                            <i class="bx bx-search icon"></i>
+                            <input type="search" placeholder="Search..." id="search-box">
+                    </li>
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class="bx bx-home-alt icon"></i>
+                                <span class="text nav-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="notes.html">
+                                <i class="bx bx-note icon"></i>
+                                <span class="text nav-text">Notes</span>
+                            </a>
+                        </li>
+                        <!-- <li class="nav-link">
+                            <a href="#">
+                                <i class="bx bx-bell icon"></i>
+                                <span class="text nav-text">Notifications</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class="bx bx-pie-chart-alt icon"></i>
+                                <span class="text nav-text">Analytics</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class="bx bx-heart icon"></i>
+                                <span class="text nav-text">Likes</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class="bx bx-wallet icon"></i>
+                                <span class="text nav-text">Wallet</span>
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+                        <div class="bottom-content">
+                            <li class="nav-link">
+                                <a href="#">
+                                    <i class="bx bx-log-out icon"></i>
+                                    <span class="text nav-text">Logout</span>
+                                </a>
+                            </li>
+                            
+                            <li class="mode" id="nav-link">
+                                <div class="moon-sun">
+                                    <i class="bx bx-moon icon moon"></i>
+                                    <i class="bx bx-sun icon sun"></i>
+                                </div>
+                                <span class="mode-text text">Dark Mode</span>
+
+                                <div class="toggle-switch">
+                                    <span class="switch"></span>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="home">
+            <div class="text">Dashboard</div>
+            <h4> <div class="welcome-message" style="display: none;"><h1>Welcome, </h1></div></h4>
+            <br><br>
+                <!-- Login Form -->
+                <div class="loginregisterform">
+                    <br>
+                    <br>
+                    <h2>Login</h2>
+                    <form id="login-form">
+                        <br><br>
+                        <div class="form-group">
+                            <label for="login-username">Username</label>
+                            <input type="text" id="login-username" name="login-username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" name="login-password" required>
+                        </div>
+                        <br>
+                        <br>
+                        <button type="submit">Login</button>
+                    </form>
+            
+                <br><br>
+                <!-- Registration Form -->
+                    <h2>Register</h2>
+                    <form id="register-form">
+                        <div class="form-group">
+                            <br><br>
+                            <label for="register-username">Username</label>
+                            <input type="text" id="register-username" name="register-username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">Email</label>
+                            <input type="email" id="register-email" name="register-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Password</label>
+                            <input type="password" id="register-password" name="register-password" required>
+                        </div>
+                        <br>
+                        <br>
+                        <button type="submit">Register</button>
+                    </form>
+                </div>
+            </section>
+                <br>
+                <br>
+
+        <script src="script.js"></script>
+        <script src="scriptauth.js"></script>
+
+    </body>
+</html>

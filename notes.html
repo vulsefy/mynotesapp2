@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!-- Made By TASOSTHDS -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">  
+    <title>Vulsefy | Notes</title>
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="notes.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Iconscout Link For Icons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="vulsefylogo3.ico" type="image/x-icon" />
+  </head>
+  <body>
+
+    <div class="wrapper">
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="vulsefylogo3.png" alt="logo">
+                </span>
+
+                <div class="text header-text">
+                    <span class="name">Vulsefy</span>
+                    <span class="profession">Web Developer</span>
+                </div>
+            </div>
+
+            <i class="bx bx-chevron-right toggle"></i>
+
+        </header>
+        <div class="menu-bar ">
+            <div class="menu">
+                <li class="search-box">
+                        <i class="bx bx-search icon"></i>
+                        <input type="search" placeholder="Search..." id="search-boxx">
+                </li>
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="index.html">
+                            <i class="bx bx-home-alt icon"></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="bx bx-note icon"></i>
+                            <span class="text nav-text">Notes</span>
+                        </a>
+                    </li>
+                    <!-- <li class="nav-link">
+                        <a href="#">
+                            <i class="bx bx-bell icon"></i>
+                            <span class="text nav-text">Notifications</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="bx bx-pie-chart-alt icon"></i>
+                            <span class="text nav-text">Analytics</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="bx bx-heart icon"></i>
+                            <span class="text nav-text">Likes</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="bx bx-wallet icon"></i>
+                            <span class="text nav-text">Wallet</span>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+                    <div class="bottom-content">
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class="bx bx-log-out icon"></i>
+                                <span class="text nav-text">Logout</span>
+                            </a>
+                        </li>
+                        
+                        <li class="mode">
+                            <div class="moon-sun">
+                                <i class="bx bx-moon icon moon"></i>
+                                <i class="bx bx-sun icon sun"></i>
+                            </div>
+                            <span class="mode-text text">Dark Mode</span>
+
+                            <div class="toggle-switch">
+                                <span class="switch"></span>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="home">
+        <div class="text">Notes</div>
+    <section>
+        <section class="home3">
+        <div class="wrapper2 ">
+        <li class="add-box">
+            <div class="icon2"><i class="uil uil-plus"></i></div>
+            <p style="text-align: center;">Add new note</p>
+        </li>
+        </div>
+    <div class="popup-box">
+    <div class="popup">
+        <div class="content2">
+        <header>
+            <p></p>
+            <i class="uil uil-times"></i>
+        </header>
+        <form action="#">
+            <div class="row title">
+            <!-- <label>Title</label> -->
+            <input type="text" spellcheck="false" placeholder="Title">
+            </div>
+            <div class="row description">
+            <!-- <label>Description</label> -->
+            <textarea spellcheck="false" placeholder="Description"></textarea>
+            </div>
+            <button></button>
+        </form>
+        </div>
+    </div>
+    </div>
+
+</section>
+
+<script></script>
+
+    <script>
+    const addBox = document.querySelector(".add-box");
+    const popupBox = document.querySelector(".popup-box");
+    const popupTitle = popupBox.querySelector("header p");
+    const closeIcon = popupBox.querySelector("header i");
+    const titleTag = popupBox.querySelector("input");
+    const descTag = popupBox.querySelector("textarea");
+    const addBtn = popupBox.querySelector("button");
+    const wrapper2 = document.querySelector(".wrapper2");
+    const bodyTag = document.querySelector("body");
+
+const months = ["January", "February", "March", "April", "May", "June", "July",
+            "August", "September", "October", "November", "December"];
+const notes = JSON.parse(localStorage.getItem("notes") || "[]");
+let isUpdate = false, updateId;
+
+addBox.addEventListener("click", () => {
+    wrapper2.classList.add("close");
+    popupTitle.innerText = "Add a Note";
+    addBtn.innerText = "Add Note";
+    popupBox.classList.add("show");
+    document.querySelector("body").style.overflow = "hidden";
+    titleTag.focus(); // Always focus on the title tag when opening the form
+    bodyTag.classList.add("popup-open"); // Add class to the body when popup is opened
+});
+
+closeIcon.addEventListener("click", () => {
+    wrapper2.classList.remove("close");
+    isUpdate = false;
+    titleTag.value = descTag.value = "";
+    popupBox.classList.remove("show");
+    
+    document.querySelector("body").style.overflow = "auto";
+});
+
+function showNotes() {
+    if(!notes) return;
+    document.querySelectorAll(".note").forEach(li => li.remove());
+    notes.forEach((note, id) => {
+        let filterDesc = note.description.replaceAll("\n", '<br/>');
+        let liTag = `<li class="note">
+                        <div class="details">
+                            <p>${note.title}</p>
+                            <span>${filterDesc}</span>
+                        </div>
+                        <div class="bottom-content2">
+                            <span>${note.date}</span>
+                            <div class="settings">
+                                <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
+                                <ul class="menu2">
+                                    <li onclick="updateNote(${id}, '${note.title}', '${filterDesc}')"><i class="uil uil-pen"></i>Edit</li>
+                                    <li onclick="deleteNote(${id})"><i class="uil uil-trash"></i>Delete</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>`;
+        addBox.insertAdjacentHTML("afterend", liTag);
+    });
+}
+showNotes();
+
+function showMenu(elem) {
+    elem.parentElement.classList.add("show");
+    document.addEventListener("click", e => {
+        if(e.target.tagName != "I" || e.target != elem) {
+            elem.parentElement.classList.remove("show");
+        }
+    });
+}
+
+function deleteNote(noteId) {
+    let confirmDel = confirm("Are you sure you want to delete this note?");
+    if(!confirmDel) return;
+    notes.splice(noteId, 1);
+    localStorage.setItem("notes", JSON.stringify(notes));
+    showNotes();
+}
+
+function updateNote(noteId, title, filterDesc) {
+    let description = filterDesc.replaceAll('<br/>', '\r\n');
+    updateId = noteId;
+    isUpdate = true;
+    addBox.click();
+    titleTag.value = title;
+    descTag.value = description;
+    popupTitle.innerText = "Update a Note";
+    addBtn.innerText = "Update Note";
+}
+
+addBtn.addEventListener("click", e => {
+    e.preventDefault();
+    let title = titleTag.value.trim(),
+    description = descTag.value.trim();
+
+    if(title || description) {
+        let currentDate = new Date(),
+        month = months[currentDate.getMonth()],
+        day = currentDate.getDate(),
+        year = currentDate.getFullYear();
+
+        let noteInfo = {title, description, date: `${month} ${day}, ${year}`}
+        if(!isUpdate) {
+            notes.push(noteInfo);
+        } else {
+            isUpdate = false;
+            notes[updateId] = noteInfo;
+        }
+        localStorage.setItem("notes", JSON.stringify(notes));
+        showNotes();
+        closeIcon.click();
+    }
+});
+
+
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
